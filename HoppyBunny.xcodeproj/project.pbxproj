@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81739931D1C55A800FA78CE /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D81739911D1C55A800FA78CE /* MyParticle.sks */; };
+		D81739941D1C55A800FA78CE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D81739921D1C55A800FA78CE /* spark.png */; };
 		D8CEA8521CCC2B1600CAE653 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA8461CCC2B1600CAE653 /* CGFloat+Extensions.swift */; };
 		D8CEA8531CCC2B1600CAE653 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA8471CCC2B1600CAE653 /* CGPoint+Extensions.swift */; };
 		D8CEA8541CCC2B1600CAE653 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA8481CCC2B1600CAE653 /* CGVector+Extensions.swift */; };
@@ -22,7 +24,6 @@
 		D8CEA8601CCC2B2300CAE653 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA85E1CCC2B2300CAE653 /* MSButtonNode.swift */; };
 		D8CEA8611CCC2B2300CAE653 /* MSReferenceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA85F1CCC2B2300CAE653 /* MSReferenceNode.swift */; };
 		D8CEA8641CCC411800CAE653 /* Obstacle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8CEA8631CCC411800CAE653 /* Obstacle.sks */; };
-		D8ECF5CB1CD5BD790014C76E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ECF5CA1CD5BD790014C76E /* Extensions.swift */; };
 		D8EF09F01CD6765700448F49 /* GameEffects.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8EF09EF1CD6765700448F49 /* GameEffects.sks */; };
 		D8FC6E241CCB550B005596DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC6E231CCB550B005596DE /* AppDelegate.swift */; };
 		D8FC6E261CCB550B005596DE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8FC6E251CCB550B005596DE /* GameScene.sks */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D81739911D1C55A800FA78CE /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		D81739921D1C55A800FA78CE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D8CEA8461CCC2B1600CAE653 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		D8CEA8471CCC2B1600CAE653 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		D8CEA8481CCC2B1600CAE653 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		D8CEA85E1CCC2B2300CAE653 /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		D8CEA85F1CCC2B2300CAE653 /* MSReferenceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSReferenceNode.swift; sourceTree = "<group>"; };
 		D8CEA8631CCC411800CAE653 /* Obstacle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Obstacle.sks; sourceTree = "<group>"; };
-		D8ECF5CA1CD5BD790014C76E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D8EF09EF1CD6765700448F49 /* GameEffects.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameEffects.sks; sourceTree = "<group>"; };
 		D8FC6E201CCB550B005596DE /* HoppyBunny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoppyBunny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FC6E231CCB550B005596DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				D8FC6E251CCB550B005596DE /* GameScene.sks */,
+				D81739911D1C55A800FA78CE /* MyParticle.sks */,
+				D81739921D1C55A800FA78CE /* spark.png */,
 				D8FC6E691CCB5737005596DE /* Hero.sks */,
 				D8CEA8631CCC411800CAE653 /* Obstacle.sks */,
 				D8EF09EF1CD6765700448F49 /* GameEffects.sks */,
@@ -177,7 +181,6 @@
 				D8FC6E231CCB550B005596DE /* AppDelegate.swift */,
 				D8CEA8651CCC453600CAE653 /* Scenes */,
 				D8FC6E271CCB550B005596DE /* GameScene.swift */,
-				D8ECF5CA1CD5BD790014C76E /* Extensions.swift */,
 				D8FC6E291CCB550B005596DE /* GameViewController.swift */,
 				D8FC6E2B1CCB550B005596DE /* Main.storyboard */,
 				D8FC6E2E1CCB550B005596DE /* Assets.xcassets */,
@@ -314,6 +317,8 @@
 				D8FC6E6C1CCBC53C005596DE /* Utils in Resources */,
 				D8FC6E261CCB550B005596DE /* GameScene.sks in Resources */,
 				D8FC6E321CCB550B005596DE /* LaunchScreen.storyboard in Resources */,
+				D81739931D1C55A800FA78CE /* MyParticle.sks in Resources */,
+				D81739941D1C55A800FA78CE /* spark.png in Resources */,
 				D8FC6E2F1CCB550B005596DE /* Assets.xcassets in Resources */,
 				D8FC6E6A1CCB5737005596DE /* Hero.sks in Resources */,
 				D8FC6E2D1CCB550B005596DE /* Main.storyboard in Resources */,
@@ -343,7 +348,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CEA8611CCC2B2300CAE653 /* MSReferenceNode.swift in Sources */,
-				D8ECF5CB1CD5BD790014C76E /* Extensions.swift in Sources */,
 				D8FC6E281CCB550B005596DE /* GameScene.swift in Sources */,
 				D8CEA8531CCC2B1600CAE653 /* CGPoint+Extensions.swift in Sources */,
 				D8CEA85C1CCC2B1600CAE653 /* SKTTimingFunctions.swift in Sources */,

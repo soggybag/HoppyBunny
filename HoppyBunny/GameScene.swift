@@ -10,31 +10,40 @@ import SpriteKit
 
 
 enum GameSceneState {
-    case Active, GameOver
+    case Active
+    case GameOver
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var clouds: SKSpriteNode!
+    var clouds2: SKSpriteNode!
+    
+    var crystals: SKSpriteNode!
+    var crystals2: SKSpriteNode!
+    
     var hero: SKSpriteNode!
+    var scrollLayer: SKNode!
+    var obstacleLayer: SKNode!
+    var buttonRestart: MSButtonNode!
+    var scoreLabel: SKLabelNode!
+    var obstacleSource: SKNode!
+    
     var sinceTouch : CFTimeInterval = 0
     let fixedDelta: CFTimeInterval = 1.0 / 60.0 /* 60 FPS */
     let scrollSpeed: CGFloat = 100
-    var scrollLayer: SKNode!
-    var obstacleLayer: SKNode!
+    
     var spawnTimer: CFTimeInterval = 0
-    
-    var obstacleSource: SKNode!
-    
-    var buttonRestart: MSButtonNode!
     
     var gameState: GameSceneState = .Active
     
-    var scoreLabel: SKLabelNode!
     var points: Int = 0 {
         didSet {
             scoreLabel.text = "\(points)"
         }
     }
+    
+    
     
     
     func scrollWorld() {
@@ -104,20 +113,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         
+        // ******* Check for contact with goal ***************
         let contactA: SKPhysicsBody = contact.bodyA
         let contactB: SKPhysicsBody = contact.bodyB
         let nodeA = contactA.node!
         let nodeB = contactB.node!
-        
-        print(nodeA.name, nodeB.name)
         
         if nodeA.name == "obstacleCenter" || nodeB.name == "obstacleCenter" {
             points += 1
             return
         }
         
+        
+        // ****** contact with anything else ends game *****
+        
         if gameState != .Active { return }
+        
         gameState = .GameOver
+        
         hero.physicsBody?.allowsRotation = false
         hero.physicsBody?.angularVelocity = 0
         hero.removeAllActions()
@@ -139,6 +152,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        clouds = self.childNodeWithName("clouds") as! SKSpriteNode
+        clouds2 = self.childNodeWithName("clouds2") as! SKSpriteNode
+        
+        crystals = self.childNodeWithName("crystals") as! SKSpriteNode
+        crystals2 = self.childNodeWithName("crystals2") as! SKSpriteNode
         
         /* Recursive node search for 'hero' (child of referenced node) */
         hero = self.childNodeWithName("//hero") as! SKSpriteNode
@@ -166,6 +185,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         points = 0
     }
     
+    
+    
+    
+    
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
@@ -174,17 +198,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hero.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         
         /* Apply vertical impulse */
-        hero.physicsBody?.applyImpulse(CGVectorMake(0, 5))
+        hero.physicsBody?.applyImpulse(CGVectorMake(0, 8))
         
         /* Apply subtle rotation */
-        // hero.physicsBody?.applyAngularImpulse(1)
+        hero.physicsBody?.applyAngularImpulse(1)
         
         /* Reset touch timer */
         sinceTouch = 0
     }
     
+    
+    
+    func scrollSprite(sprite: SKSpriteNode, speed: CGFloat) {
+        sprite.position.x -= speed
+        
+        if sprite.position.x < sprite.size.width / -2 {
+            sprite.position.x += sprite.size.width * 2
+        }
+    }
+    
+    
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        scrollSprite(clouds, speed: 3)
+        scrollSprite(clouds2, speed: 3)
+        
+        scrollSprite(crystals, speed: 1)
+        scrollSprite(crystals2, speed: 1)
         
         if gameState != .Active { return }
         
@@ -200,7 +242,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Apply falling rotation */
         if sinceTouch > 0.1 {
             let impulse = -20000 * fixedDelta
-            // hero.physicsBody?.applyAngularImpulse(CGFloat(impulse))
+            hero.physicsBody?.applyAngularImpulse(CGFloat(impulse))
         }
         
         /* Clamp rotation */
